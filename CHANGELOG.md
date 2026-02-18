@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.26.5-andrewjdawes.1 February 2026
+
+* Add: `exclude_constants` config option to exclude constants from prefixing. Same shape as `exclude_from_prefix` but applies only to constants (e.g. `define()` or `const`). Use for runtime constants like `WP_PLUGIN_DIR`, `ABSPATH`. Supports `packages`, `namespaces`, `file_patterns`, and `constants` arrays.
+* Fix: Constants filtered by `isDoRename()` are no longer replaced in the prefixer, so excluded constants are left unchanged in output.
+* Release: Release workflow no longer commits the version bump in `bin/strauss` back to the repo.
+
 ## 0.26.5 February 2025
 
 ## 0.26.4 January 2025
