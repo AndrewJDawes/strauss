@@ -60,19 +60,6 @@ jobs:
       - name: Install dependencies
         run: composer install --no-dev --prefer-dist --no-progress
 
-      - name: "Edit `strauss/bin/strauss` to update the version number"
-        env:
-          CURRENT_RELEASE: ${{ github.event.release.tag_name }}
-        run: |
-          find bin -name 'strauss' -exec sed -i "s/}, '[[:digit:]]*\.[[:digit:]]*\.[[:digit:]]*');/}, '$CURRENT_RELEASE');/" {} +
-
-      - name: Commit updated README.md
-        uses: stefanzweifel/git-auto-commit-action@v4.1.1
-        with:
-          branch: master
-          file_pattern: "bin/strauss"
-          commit_message: "🤖 Update version number in bin"
-
       - name: Create .phar
         run: |
           wget -O phar-composer.phar https://github.com/clue/phar-composer/releases/download/v1.4.0/phar-composer-1.4.0.phar
@@ -87,15 +74,6 @@ jobs:
 
       - name: Test run strauss
         run: php strauss.phar --version
-
-      - name: Check version
-        run: |
-          TAG_NAME="${{ github.event.release.tag_name }}"
-          CURRENT_VERSION="$(php strauss.phar --version | sed -e 's#^.\+ \([0-9.]\+\)$#\1#')"
-          if [ "${TAG_NAME#v}" != "${CURRENT_VERSION}" ]; then
-            echo "::error::Latest tag differs from current version"
-            exit 10
-          fi
 
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@v5
