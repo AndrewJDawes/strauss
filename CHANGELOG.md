@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.26.5-andrewjdawes.3 February 2026
+
+* Fix: Skip non-existent autoload paths — when a dependency's `composer.json` references a path that does not exist (e.g. `tests/` not shipped in dist), Strauss now logs a warning and continues instead of failing with "Could not scan for classes inside...".
+* Fix: Normalize autoload path building to avoid double slashes (e.g. `vendor/respect/stringifier//tests/src`).
+
 ## 0.26.5-andrewjdawes.2 February 2026
 
 * Removed workflows to increment version number
