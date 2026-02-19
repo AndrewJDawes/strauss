@@ -1,11 +1,11 @@
 #!/bin/bash
-set -x
+
 # chmod +x scripts/createphar.sh
 # ./scripts/createphar.sh
 
 rm -rf build
 composer install --no-dev
-# wget -O phar-composer.phar https://github.com/clue/phar-composer/releases/download/v1.4.0/phar-composer-1.4.0.phar
+wget -O phar-composer.phar https://github.com/clue/phar-composer/releases/download/v1.4.0/phar-composer-1.4.0.phar
 mkdir build
 cp -R vendor build/vendor
 cp -R src build/src
