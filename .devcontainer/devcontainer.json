@@ -1,0 +1,15 @@
+{
+  "name": "Strauss",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client"
+      ]
+    }
+  },
+  "postCreateCommand": "[ -f composer.json ] && composer install",
+  "remoteUser": "root"
+}
