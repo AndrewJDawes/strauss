@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.27.3-andrewjdawes.1 June 2026
+
+* Fix: Constant prefix substring collisions during replacement (e.g. prefixing `FILTER_VALIDATE_BOOL` no longer corrupts `FILTER_VALIDATE_BOOLEAN`).
+* Based on upstream [BrianHenryIE/strauss 0.27.3](https://github.com/BrianHenryIE/strauss/releases/tag/0.27.3).
+
 ## 0.27.3 June 2025
 
 * Dependency: Update `composer/composer`
