@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.27.3-andrewjdawes.2 June 2026
+
+* Fix: Only prepend a PHP open tag when the file lacks `<?php` entirely (license headers before `<?php` no longer break AST replacement).
+* Fix: Use word-boundary `preg_replace` in the constant-replacement fallback path to avoid prefix substring collisions.
+* Fix: Prefix fully qualified global constants (e.g. `\MY_CONSTANT`).
+
 ## 0.27.3-andrewjdawes.1 June 2026
 
 * Fix: Constant prefix substring collisions during replacement (e.g. prefixing `FILTER_VALIDATE_BOOL` no longer corrupts `FILTER_VALIDATE_BOOLEAN`).
